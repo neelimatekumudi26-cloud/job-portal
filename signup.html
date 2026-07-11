@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup-Page</title>
+    <link rel=stylesheet href="signup.css">
 </head>
 <body>
-    
+    <div class="signup-box">
+    <h1>Signup</h1>
+    <form id="signupForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your Name">
+
+         <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your Email">
+
+         <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+
+         <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Enter your confirm password">
+        
+        <button type="submit">Signup</button>                                                                                                                                                                                                                                                                                                                                                                                                          
+    </form>
+</div>
+<script>
+    let signupForm = document.getElementById("signuForm");
+
+    signupForm.addEventListener("submit",function(e){
+        e.preventDefault();
+        let name =document.getElementById("name").value;
+        let email = document.getElementById("email").value
+    })
+</script>
 </body>
 </html>
