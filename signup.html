@@ -26,15 +26,42 @@
     </form>
 </div>
 <script>
-    let signupForm = document.getElementById("signupForm");
+let signupForm = document.getElementById("signupForm");
 
-    signupForm.addEventListener("submit",function(e){
-        e.preventDefault();
-        let name =document.getElementById("name").value;
-        let email = document.getElementById("email").value
+signupForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-       
-    })
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Empty fields check
+    if (name === "" || email === "" || password === "" || confirmPassword === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    // Password match check
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    // Save user data in localStorage
+    let user = {
+        name: name,
+        email: email,
+        password: password
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    alert("Signup Successful!");
+
+    // Login page ki redirect
+    window.location.href = "login.html";
+});
 </script>
 </body>
 </html>
